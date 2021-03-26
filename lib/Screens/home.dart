@@ -1,65 +1,94 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:sell_it/Screens/constants.dart';
-import 'package:sell_it/widgets/CustomNavigationBar.dart';
 
-class Homepage extends StatefulWidget {
+
+class Homepage extends StatelessWidget {
+  // This widget is the root of your application.
   @override
-  _HomepageState createState() => _HomepageState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(
+          title: 'SELL IT',
+
+      ),
+    );
+  }
 }
 
-class _HomepageState extends State<Homepage> {
-  int _selectedItem = 0;
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(
-        iconList: [
-          Icons.home,
-          Icons.search,
-          Icons.add,
-          Icons.message,
-          Icons.settings,
-        ],
-      onChange: (val){
-          setState(() {
-            _selectedItem = val;
-          });
-      },
-        defaultSelectedIndex: 1,
-      ),
       appBar: AppBar(
-        backgroundColor: Colors.grey,
-        title: Text("SELL IT"),
-        actions: [
-          IconButton(
-          icon: const Icon(Icons.notifications),
-            tooltip: 'Notification',
-             onPressed: () {}
-          ),
-          IconButton(
-              icon: const Icon(Icons.menu),
-              tooltip: 'Notification',
-              onPressed: () {}
-          )
-
-        ],
+        title: Text(widget.title),
+        backgroundColor: Colors.blueGrey.shade400,
       ),
       body: Center(
-        child: Text(
-          "Hello from Item $_selectedItem",
-          style: Constants.boldHeading,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'SELL IT2',
+            ),
+          ],
         ),
       ),
-          // body: Center(
-          //   child: FlatButton(
-          //     child: Text("Logout"),
-          //     onPressed: (){
-          //       FirebaseAuth.instance.signOut();
-          //     },
-          //   ),
-          // ),
+      bottomNavigationBar: FFNavigationBar(
+        theme: FFNavigationBarTheme(
+          barBackgroundColor: Colors.white,
+          selectedItemBorderColor: Colors.transparent,
+          selectedItemBackgroundColor: Colors.blue,
+          selectedItemIconColor: Colors.white,
+          selectedItemLabelColor: Colors.black,
+          showSelectedItemShadow: false,
+          barHeight: 70,
+        ),
+        selectedIndex: selectedIndex,
+        onSelectTab: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        items: [
+          FFNavigationBarItem(
+            iconData: Icons.home,
+            label: 'Home',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.search,
+            label: 'Search',
+            selectedBackgroundColor: Colors.blue,
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.add_circle_outline,
+            label: 'Sell it',
+            selectedBackgroundColor: Colors.blue,
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.chat,
+            label: 'Chat',
+            selectedBackgroundColor: Colors.blue,
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.settings,
+            label: 'Settings',
+            selectedBackgroundColor: Colors.blue,
+          ),
+        ],
+      ),
     );
   }
 }

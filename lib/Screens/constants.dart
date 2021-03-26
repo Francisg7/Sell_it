@@ -8,6 +8,12 @@ class Constants {
       fontWeight: FontWeight.w600,
       color: Colors.black
       );
+  static const TextStyle optionStye = TextStyle(
+    fontSize: 20.0,
+    fontWeight: FontWeight.w400,
+    color: Colors.black,
+  );
+
 
   static const boldHeading = TextStyle(
       fontSize: 22.0,
