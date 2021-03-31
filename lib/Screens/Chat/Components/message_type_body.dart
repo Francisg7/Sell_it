@@ -28,7 +28,7 @@ class ImageMessage extends StatelessWidget {
       child: Image(
         height: 200,
         width: 300,
-        image: AssetImage("assets/images/jesus.png"),
+        image: AssetImage("Assets/images/jesus.png"),
       ),
     );
   }

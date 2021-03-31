@@ -14,7 +14,7 @@ class MessageScreen extends StatelessWidget {
           children: [
             BackButton(),
             CircleAvatar(
-              backgroundImage: AssetImage("assets/images/user_2.png"),
+              backgroundImage: AssetImage("Assets/images/user_2.png"),
             ),
             SizedBox(width: kDefaultPadding * 0.75),
             Column(

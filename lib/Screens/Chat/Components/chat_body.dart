@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sell_it/Screens/Chat/Components/constants.dart';
+import 'package:sell_it/Models/Chat.dart';
+import 'package:sell_it/Screens/Chat/Components/chat_card.dart';
 import 'package:sell_it/Screens/Chat/messages_screen.dart';
-
-import '../../../models/Chat.dart';
-import 'chat_card.dart';
 
 class ChatBody extends StatelessWidget {
   @override

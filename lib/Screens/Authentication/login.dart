@@ -7,6 +7,7 @@ import 'package:sell_it/widgets/custom_inputs.dart';
 import '../constants.dart';
 
 class LoginPage extends StatefulWidget {
+  static String route = "LoginPage";
   @override
   _LoginPageState createState() => _LoginPageState();
 }

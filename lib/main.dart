@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sell_it/Screens/Authentication/login.dart';
+import 'package:sell_it/Screens/Authentication/register_page.dart';
+import 'package:sell_it/Screens/Chat/chat_screen.dart';
+import 'package:sell_it/Screens/home.dart';
 
 import 'Screens/Authentication/landing_page.dart';
 
@@ -19,6 +23,13 @@ class MyApp extends StatelessWidget {
         Theme.of(context).textTheme,
       )),
       home: LandingPage(),
+      initialRoute: "ChatScreen",
+      routes: {
+        "LogIn": (context) => LoginPage(),
+        "Register": (context) => RegisterPage(),
+        "Home": (context) => Homepage(),
+        "ChatScreen": (context) => ChatMainScreen(),
+      },
     );
   }
 }
