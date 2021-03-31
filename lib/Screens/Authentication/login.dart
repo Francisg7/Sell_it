@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Rudy%20Tchouasseu/Documents/GitHub/Sell_it/lib/Screens/Authentication/register_page.dart';
+import 'package:sell_it/Screens/Authentication/register_page.dart';
 import 'package:sell_it/widgets/custom_btn.dart';
 import 'package:sell_it/widgets/custom_inputs.dart';
 

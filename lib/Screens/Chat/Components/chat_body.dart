@@ -1,8 +1,7 @@
-import 'package:chat/screens/chat/messages_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Screens/Chat/Components/constants.dart';
+import 'package:sell_it/Screens/Chat/messages_screen.dart';
 
-import '../../../components/filled_outline_button.dart';
-import '../../../constants.dart';
 import '../../../models/Chat.dart';
 import 'chat_card.dart';
 
@@ -11,7 +10,7 @@ class ChatBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        /*Container(
           padding: EdgeInsets.fromLTRB(
               kDefaultPadding, 0, kDefaultPadding, kDefaultPadding),
           color: kPrimaryColor,
@@ -32,7 +31,7 @@ class ChatBody extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        ),*/
         Expanded(
           child: ListView.builder(
             itemCount: chatsData.length,

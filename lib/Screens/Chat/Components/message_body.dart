@@ -1,7 +1,7 @@
-import 'package:chat/constants.dart';
-import 'package:chat/models/ChatMessage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Models/ChatMessage.dart';
+import 'package:sell_it/Screens/Chat/Components/constants.dart';
 
 import 'message_input_field.dart';
 import 'message_type_body.dart';

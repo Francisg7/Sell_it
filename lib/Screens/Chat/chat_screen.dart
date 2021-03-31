@@ -1,9 +1,6 @@
-import 'package:chat/screens/chat/Components/chat_body.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
-import '../../constants.dart';
-import '../../constants.dart';
+import 'package:sell_it/Screens/Chat/Components/chat_body.dart';
+import 'package:sell_it/Screens/Chat/Components/constants.dart';
 
 class ChatMainScreen extends StatelessWidget {
   @override

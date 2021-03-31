@@ -1,6 +1,5 @@
-import 'package:audioplayers/audioplayers.dart';
-import 'package:chat/models/ChatMessage.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Models/ChatMessage.dart';
 
 class TextMessage extends StatelessWidget {
   const TextMessage({Key key, @required this.message}) : super(key: key);
@@ -44,19 +43,9 @@ class AudioMessage extends StatefulWidget {
 }
 
 class _AudioMessageState extends State<AudioMessage> {
-  AudioPlayer audioPlayer = AudioPlayer();
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: IconButton(
-        icon: Icon(Icons.audiotrack),
-        onPressed: () async {
-          await audioPlayer.play(
-              "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_2MG.mp3");
-        },
-      ),
-    );
+    return Container();
   }
 }
 
