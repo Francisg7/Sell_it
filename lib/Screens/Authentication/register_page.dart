@@ -6,6 +6,7 @@ import 'package:sell_it/widgets/custom_inputs.dart';
 import '../constants.dart';
 
 class RegisterPage extends StatefulWidget {
+  static const String id = "RegisterPage";
   static String route = "RegisterPage";
 
   @override

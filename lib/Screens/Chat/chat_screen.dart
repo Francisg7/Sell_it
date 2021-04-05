@@ -3,6 +3,8 @@ import 'package:sell_it/Screens/Chat/Components/chat_body.dart';
 import 'package:sell_it/Screens/Chat/Components/constants.dart';
 
 class ChatMainScreen extends StatelessWidget {
+  static const String id = "ChatMainScreen";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

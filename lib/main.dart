@@ -23,12 +23,13 @@ class MyApp extends StatelessWidget {
         Theme.of(context).textTheme,
       )),
       home: LandingPage(),
-      initialRoute: "ChatScreen",
+      initialRoute: LandingPage.id,
       routes: {
-        "LogIn": (context) => LoginPage(),
-        "Register": (context) => RegisterPage(),
-        "Home": (context) => Homepage(),
-        "ChatScreen": (context) => ChatMainScreen(),
+        LandingPage.id: (context) => LandingPage(),
+        LoginPage.id: (context) => LoginPage(),
+        RegisterPage.id: (context) => RegisterPage(),
+        Homepage.id: (context) => Homepage(),
+        ChatMainScreen.id: (context) => ChatMainScreen(),
       },
     );
   }

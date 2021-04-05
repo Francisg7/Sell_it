@@ -7,6 +7,7 @@ import '../home.dart';
 import 'login.dart';
 
 class LandingPage extends StatelessWidget {
+  static const String id = "LandingPage";
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override

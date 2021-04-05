@@ -1,16 +1,16 @@
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-
 class Homepage extends StatelessWidget {
+  static const String id = "HomePage";
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(
-          title: 'SELL IT',
-
+        title: 'SELL IT',
       ),
     );
   }
@@ -26,7 +26,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-
   int selectedIndex = 0;
 
   @override
