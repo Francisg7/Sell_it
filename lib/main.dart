@@ -4,9 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sell_it/Screens/Authentication/login.dart';
 import 'package:sell_it/Screens/Authentication/register_page.dart';
 import 'package:sell_it/Screens/Chat/chat_screen.dart';
-import 'package:sell_it/Screens/home.dart';
-
-import 'Screens/Authentication/landing_page.dart';
+import 'package:sell_it/Screens/home_page.dart';
+import 'Screens/Authentication/initialisation.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
         LandingPage.id: (context) => LandingPage(),
         LoginPage.id: (context) => LoginPage(),
         RegisterPage.id: (context) => RegisterPage(),
-        Homepage.id: (context) => Homepage(),
+        //HomePage.id: (context) => HomePage(),
         ChatMainScreen.id: (context) => ChatMainScreen(),
       },
     );

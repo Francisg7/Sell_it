@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class User {
   ///In this class,
   ///getters get data from the firebase variable, update the local object and return the object value

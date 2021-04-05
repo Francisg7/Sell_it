@@ -1,9 +1,13 @@
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+/*
 class Homepage extends StatelessWidget {
+  /// Widget's id name used with routes
   static const String id = "HomePage";
 
+  /// Firebase User class element to store logged in user
+  User user;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,11 +19,15 @@ class Homepage extends StatelessWidget {
     );
   }
 }
+*/
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
-
+  /// Widget's id name used with routes
+  static const String id = "HomePage";
+  final User user;
   final String title;
+
+  const HomePage({Key key, @required this.user, this.title}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -27,21 +35,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title ?? "App title"),
         backgroundColor: Colors.blueGrey.shade400,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'SELL IT2',
-            ),
+            Text('Hello, is your email address  ${widget.user.email} ? '),
           ],
         ),
       ),
