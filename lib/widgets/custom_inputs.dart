@@ -9,8 +9,13 @@ class CustomInputs extends StatelessWidget {
   final FocusNode focusNode;
   final bool isPasswordField;
 
-  CustomInputs({this.hintext,this.onChanged,this.onSubmitted, this.focusNode,this.textInputAction,this.isPasswordField});
-
+  CustomInputs(
+      {this.hintext,
+      this.onChanged,
+      this.onSubmitted,
+      this.focusNode,
+      this.textInputAction,
+      this.isPasswordField});
 
   @override
   Widget build(BuildContext context) {
@@ -21,23 +26,23 @@ class CustomInputs extends StatelessWidget {
         vertical: 12.0,
       ),
       decoration: BoxDecoration(
-          color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(12.0)
-      ),
+          color: Colors.grey[200], borderRadius: BorderRadius.circular(12.0)),
       child: TextField(
+        keyboardType: (_isPasswordField
+            ? TextInputType.visiblePassword
+            : TextInputType.emailAddress),
         obscureText: _isPasswordField,
         onChanged: onChanged,
         onSubmitted: onSubmitted,
         focusNode: focusNode,
         textInputAction: textInputAction,
-      decoration: InputDecoration(
-        border: InputBorder.none,
-        hintText: hintext ?? "Hint Text...",
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 24.0,
-          vertical: 18.0,
-        )
-      ),
+        decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: hintext ?? "Hint Text...",
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 18.0,
+            )),
         style: Constants.regularDarkText,
       ),
     );

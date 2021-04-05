@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sell_it/Screens/Authentication/login.dart';
+import 'package:sell_it/Screens/Authentication/sign_in.dart';
 import 'package:sell_it/Screens/Authentication/register_page.dart';
 import 'package:sell_it/Screens/Chat/chat_screen.dart';
-import 'package:sell_it/Screens/home_page.dart';
 import 'Screens/Authentication/initialisation.dart';
 
 void main() {

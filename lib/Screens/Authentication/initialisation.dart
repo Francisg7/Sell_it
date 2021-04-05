@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 import '../home_page.dart';
-import 'login.dart';
+import 'sign_in.dart';
 
 class LandingPage extends StatelessWidget {
   /// Widget's id name used with routes
@@ -60,7 +60,9 @@ class LandingPage extends StatelessWidget {
                 /// Checking if there is a user logged in
                 else if (_user != null) {
                   // The user is logged in, head to homepage
-                  return HomePage(user: _user);
+                  return HomePage(
+                    user: _user,
+                  );
                 }
 
                 /// Default statement if everything in the authentication works well but we can't tell if the user is logged in or not

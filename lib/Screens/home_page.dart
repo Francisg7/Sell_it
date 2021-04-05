@@ -1,6 +1,9 @@
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'Authentication/initialisation.dart';
 /*
 class Homepage extends StatelessWidget {
   /// Widget's id name used with routes
@@ -25,9 +28,8 @@ class HomePage extends StatefulWidget {
   /// Widget's id name used with routes
   static const String id = "HomePage";
   final User user;
-  final String title;
 
-  const HomePage({Key key, @required this.user, this.title}) : super(key: key);
+  const HomePage({Key key, @required this.user}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -39,8 +41,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title ?? "App title"),
+        title: Text(widget.user.email),
         backgroundColor: Colors.blueGrey.shade400,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.warning_amber_outlined),
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              Navigator.pushNamed(context, LandingPage.id);
+            },
+          )
+        ],
       ),
       body: Center(
         child: Column(
