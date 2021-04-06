@@ -48,7 +48,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             icon: Icon(Icons.warning_amber_outlined),
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, LandingPage.id);
+              dispose();
+              super.dispose();
+              Navigator.pushNamed(context, Initialisation.id);
             },
           )
         ],

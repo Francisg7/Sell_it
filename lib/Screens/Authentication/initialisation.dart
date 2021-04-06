@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Screens/Authentication/sign_up_page.dart';
 
 import '../constants.dart';
 import '../home_page.dart';
 import 'sign_in.dart';
 
-class LandingPage extends StatelessWidget {
+class Initialisation extends StatelessWidget {
   /// Widget's id name used with routes
   static const String id = "LandingPage";
 
@@ -54,7 +55,13 @@ class LandingPage extends StatelessWidget {
                 /// Checking if there is no user logged in
                 if (_user == null) {
                   // user not logged in, head to login
-                  return LoginPage();
+                  String testEmail = "testemail@gmail.com";
+                  String testPassword = "testemail@gmail.com";
+                  () async {
+                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: testEmail, password: testPassword);
+                  };
+                  return SignUp();
                 }
 
                 /// Checking if there is a user logged in

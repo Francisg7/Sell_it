@@ -1,102 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sell_it/Screens/Authentication/register_page.dart';
 import 'package:sell_it/widgets/custom_btn.dart';
 import 'package:sell_it/widgets/custom_inputs.dart';
 
 import '../constants.dart';
 
-class LoginPage extends StatefulWidget {
-  static const String id = "LoginPage";
+class SignIn extends StatefulWidget {
+  static const String id = "SignInPage";
 
-  static String route = "LoginPage";
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignInState createState() => _SignInState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  Future<void> _alertDialogBuilder(String error) async {
-    return showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Error"),
-            content: Container(
-              child: Text(error),
-            ),
-            actions: [
-              FlatButton(
-                child: Text("Close Dialog"),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              )
-            ],
-          );
-        });
-  }
-
-  // Create a new user account
-  Future<String> _loginAccount() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _loginEmail, password: _loginPassword);
-      return null;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        return 'The password provided is too weak.';
-      } else if (e.code == 'email-already-in-use') {
-        return 'The account already exists for that email.';
-      }
-      return e.message;
-    } catch (e) {
-      return e.toString();
-    }
-  }
-
-  void _submitForm() async {
-    // Set the form to loading state
-    setState(() {
-      _loginFormLoading = true;
-    });
-
-    // Run the create account method
-    String _loginFeedback = await _loginAccount();
-
-    // If the string is not null, we got error while create account.
-    if (_loginFeedback != null) {
-      _alertDialogBuilder(_loginFeedback);
-
-      // Set the form to regular state [not loading].
-      setState(() {
-        _loginFormLoading = false;
-      });
-    }
-  }
-
-  // Default Form Loading State
-  bool _loginFormLoading = false;
-
-  // Form Input Field Values
-  String _loginEmail = "";
-  String _loginPassword = "";
-
-  // Focus Node for input fields
-  FocusNode _passwordFocusNode;
-
-  @override
-  void initState() {
-    _passwordFocusNode = FocusNode();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _passwordFocusNode.dispose();
-    super.dispose();
-  }
-
+class _SignInState extends State<SignIn> {
+  String _registerEmail = "";
+  String _registerPassword = "";
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,11 +27,9 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.only(
-                  top: 24.0,
-                ),
+                padding: EdgeInsets.only(top: 24.0),
                 child: Text(
-                  "Welcome User,\nLogin to your account",
+                  "Login to your Account",
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ),
@@ -122,44 +39,51 @@ class _LoginPageState extends State<LoginPage> {
                   CustomInputs(
                     hintext: "Email...",
                     onChanged: (value) {
-                      _loginEmail = value;
+                      _registerEmail = value;
                     },
                     onSubmitted: (value) {
-                      _passwordFocusNode.requestFocus();
+                      //_passwordFocusNode.requestFocus();
                     },
                     textInputAction: TextInputAction.next,
                   ),
                   CustomInputs(
                     hintext: "Password...",
                     onChanged: (value) {
-                      _loginPassword = value;
+                      _registerPassword = value;
                     },
-                    focusNode: _passwordFocusNode,
+                    //focusNode: _passwordFocusNode,
                     isPasswordField: true,
                     onSubmitted: (value) {
-                      _submitForm();
+                      //_submitForm();
                     },
                   ),
                   Custombtn(
                     text: "Login",
-                    onPressed: () {
-                      _submitForm();
+                    onPressed: () async {
+                      //_submitForm();
+                      try {
+                        final newUser = await _auth.signInWithEmailAndPassword(
+                            email: _registerEmail, password: _registerPassword);
+                        if (newUser != null) {
+                          return null;
+                        }
+                      } catch (e) {
+                        print(e);
+                        return e.message;
+                      } catch (e) {
+                        return e.toString();
+                      }
                     },
-                    isLoading: _loginFormLoading,
+                    //isLoading: _registerFormLoading,
                   )
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 16.0,
-                ),
+                padding: EdgeInsets.only(bottom: 16.0),
                 child: Custombtn(
-                  text: "Create New Account",
+                  text: "Back To Login",
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()),
-                    );
+                    Navigator.pop(context);
                   },
                   outLinebtn: true,
                 ),
