@@ -5,7 +5,6 @@ import 'package:sell_it/Screens/Authentication/sign_up_page.dart';
 
 import '../constants.dart';
 import '../home_page.dart';
-import 'sign_in.dart';
 
 class Initialisation extends StatelessWidget {
   /// Widget's id name used with routes
@@ -55,12 +54,7 @@ class Initialisation extends StatelessWidget {
                 /// Checking if there is no user logged in
                 if (_user == null) {
                   // user not logged in, head to login
-                  String testEmail = "testemail@gmail.com";
-                  String testPassword = "testemail@gmail.com";
-                  () async {
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                        email: testEmail, password: testPassword);
-                  };
+
                   return SignUp();
                 }
 

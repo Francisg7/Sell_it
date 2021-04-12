@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sell_it/Screens/Authentication/sign_in.dart';
 import 'package:sell_it/Screens/Authentication/sign_up_page.dart';
 import 'package:sell_it/Screens/Chat/chat_screen.dart';
+
 import 'Screens/Authentication/initialisation.dart';
 
 void main() {
@@ -26,7 +27,6 @@ class MyApp extends StatelessWidget {
         Initialisation.id: (context) => Initialisation(),
         SignIn.id: (context) => SignIn(),
         SignUp.id: (context) => SignUp(),
-        //HomePage.id: (context) => HomePage(),
         ChatMainScreen.id: (context) => ChatMainScreen(),
       },
     );

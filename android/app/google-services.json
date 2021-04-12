@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "888037696815",
-    "project_id": "sell-it-ad31f",
-    "storage_bucket": "sell-it-ad31f.appspot.com"
+    "project_number": "328780198381",
+    "project_id": "sell-it-10c0f",
+    "storage_bucket": "sell-it-10c0f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:888037696815:android:1c57d644302e3129aa2dda",
+        "mobilesdk_app_id": "1:328780198381:android:f251663fd51cfffdb4b7e4",
         "android_client_info": {
-          "package_name": "com.example.sell_it"
+          "package_name": "com.ukindustries.sell_it"
         }
       },
       "oauth_client": [
         {
-          "client_id": "888037696815-jjqsecph6unsqhelvkm8qlr7s2f4mm27.apps.googleusercontent.com",
+          "client_id": "328780198381-ovv9a0jms8oblgicl1jd19dd2lno7qja.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD_Kped5X1_VzeqTLYVrzA0fz7R8qpj2Nw"
+          "current_key": "AIzaSyDwQFHlIpiTCtsjTeCZRKFUr69EouUC5rI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "888037696815-jjqsecph6unsqhelvkm8qlr7s2f4mm27.apps.googleusercontent.com",
+              "client_id": "328780198381-ovv9a0jms8oblgicl1jd19dd2lno7qja.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
