@@ -37,6 +37,7 @@ class MessageInputField extends StatelessWidget {
                           hintText: "Type message",
                           border: InputBorder.none,
                         ),
+                        onChanged: (string) {},
                       ),
                     ),
                     Icon(
@@ -64,8 +65,8 @@ class MessageInputField extends StatelessWidget {
             ),
             SizedBox(width: kDefaultPadding / 4),
             CircleAvatar(
-              backgroundColor: kPrimaryColor,
-              child: Icon(Icons.mic, color: Colors.white),
+              backgroundColor: Colors.grey[200],
+              child: Icon(Icons.mic, color: Colors.black),
             ),
           ],
         ),

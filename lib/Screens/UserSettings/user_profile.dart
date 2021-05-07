@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:sell_it/Screens/Authentication/initialisation.dart';
 
 class UserProfile extends StatefulWidget {
   static const String id = "UserProfile";
@@ -15,6 +17,7 @@ class _UserProfileState extends State<UserProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey,
         title: Text("Profile"),
       ),
       body: Container(
@@ -87,6 +90,22 @@ class _UserProfileState extends State<UserProfile> {
                   child: Text("Description", style: TextStyle(fontSize: 14)),
                 ),
                 SizedBox(height: 20.0),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextButton(
+                      onPressed: () {},
+                      onLongPress: () async {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Initialisation()),
+                        );
+                        await FirebaseAuth.instance.signOut();
+                        dispose();
+                      },
+                      child: Text("Logout", style: TextStyle(fontSize: 14))),
+                ),
+                SizedBox(height: 20.0),
               ],
             )
           ],
@@ -97,5 +116,6 @@ class _UserProfileState extends State<UserProfile> {
 
   void pickImage() async {
     //var image = await ImagePicker
+    var image = await ImagePicker.pickImage();
   }
 }

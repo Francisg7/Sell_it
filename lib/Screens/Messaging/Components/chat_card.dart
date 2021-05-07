@@ -5,11 +5,12 @@ import 'package:sell_it/Screens/Messaging/Components/constants.dart';
 class ChatCard extends StatelessWidget {
   const ChatCard({
     Key key,
-    @required this.chat,
+    @required
+        this.chatName /* Let this be a string and from there get the user from the user name string gotten*/,
     @required this.press,
   }) : super(key: key);
 
-  final Chat chat;
+  final String chatName;
   final VoidCallback press;
   @override
   Widget build(BuildContext context) {
