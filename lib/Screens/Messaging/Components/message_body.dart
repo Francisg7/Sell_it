@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sell_it/Models/ChatMessage.dart';
-import 'package:sell_it/Screens/Chat/Components/constants.dart';
+import 'package:sell_it/Screens/Messaging/Components/constants.dart';
 
 import 'message_input_field.dart';
 import 'message_type_body.dart';
@@ -15,9 +15,9 @@ class MessageBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: ListView.builder(
-              itemCount: demeChatMessages.length,
+              itemCount: demoChatMessages.length,
               itemBuilder: (context, index) => Message(
-                message: demeChatMessages[index],
+                message: demoChatMessages[index],
               ),
             ),
           ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sell_it/Screens/Chat/Components/constants.dart';
+import 'package:sell_it/Screens/Messaging/Components/constants.dart';
 
 class MessageInputField extends StatelessWidget {
   @override

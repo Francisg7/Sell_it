@@ -1,10 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'package:sell_it/widgets/custom_btn.dart';
-import 'package:sell_it/widgets/custom_inputs.dart';
-
-import '../constants.dart';
+import 'package:sell_it/Constants/text_style_constants.dart';
+import 'package:sell_it/Screens/Authentication/sign_in.dart';
+import 'package:sell_it/Screens/Feeds/main_feeds.dart';
+import 'package:sell_it/Widgets/alert_dialog_widget.dart';
+import 'package:sell_it/Widgets/button_widget.dart';
+import 'package:sell_it/Widgets/input_field_widget.dart';
 
 class SignUp extends StatefulWidget {
   static const String id = "SignUpPage";
@@ -16,8 +19,11 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   String _registerEmail = "";
   String _registerPassword = "";
-  final _auth = FirebaseAuth.instance;
   bool _loading = false;
+  final _auth = FirebaseAuth.instance;
+
+  final Future<FirebaseApp> initialization = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,25 +39,23 @@ class _SignUpState extends State<SignUp> {
                 Container(
                   padding: EdgeInsets.only(top: 24.0),
                   child: Text(
-                    "Create A New Account",
+                    "Create your New Account",
                     textAlign: TextAlign.center,
                     style: Constants.boldHeading,
                   ),
                 ),
                 Column(
                   children: [
-                    CustomInputs(
-                      hintext: "Email...",
+                    InputFieldWidget(
+                      hintText: "Email...",
+                      isPasswordField: false,
                       onChanged: (value) {
                         _registerEmail = value;
                       },
-                      onSubmitted: (value) {
-                        //_passwordFocusNode.requestFocus();
-                      },
                       textInputAction: TextInputAction.next,
                     ),
-                    CustomInputs(
-                      hintext: "Password...",
+                    InputFieldWidget(
+                      hintText: "Password...",
                       onChanged: (value) {
                         _registerPassword = value;
                       },
@@ -61,30 +65,42 @@ class _SignUpState extends State<SignUp> {
                         //_submitForm();
                       },
                     ),
-                    Custombtn(
-                      text: "Create New Account",
+                    ButtonWidget(
+                      text: "Create Account",
                       onPressed: () async {
-                        //_submitForm();
                         setState(() {
                           _loading = true;
                         });
                         try {
-                          print(_registerEmail);
-                          print(_registerPassword);
                           final newUser =
                               await _auth.createUserWithEmailAndPassword(
                                   email: _registerEmail,
                                   password: _registerPassword);
                           if (newUser != null) {
-                            print(newUser);
-                            return null;
+                            final /*FirebaseUser*/ user = _auth.currentUser;
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        MainFeedsPage(user: user)));
                           }
                           setState(() {
                             _loading = false;
                           });
                         } catch (e) {
                           print(e);
-                          return e.toString();
+                          setState(() {
+                            _loading = false;
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialogWidget(
+                                      title: "Sign Up Error ",
+                                      text1: "There was an error",
+                                      text2: "$e",
+                                      buttonText: "Retry");
+                                });
+                          });
                         }
                       },
                       //isLoading: _registerFormLoading,
@@ -93,12 +109,15 @@ class _SignUpState extends State<SignUp> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 16.0),
-                  child: Custombtn(
-                    text: "Back To Login",
+                  child: ButtonWidget(
+                    text: "Back to Login",
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignIn()),
+                      );
                     },
-                    outLinebtn: true,
+                    outlined: true,
                   ),
                 ),
               ],

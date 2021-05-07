@@ -10,7 +10,6 @@ class User {
   String lastName;
   var image;
   double rating;
-
   String lastSeen;
   bool isActive = false;
 
@@ -98,13 +97,14 @@ class User {
   }
 
   User(String id, String firstName, String lastName, double rating,
-      String lastSeen, bool isActive) {
+      String lastSeen, bool isActive, String image) {
     setId(id);
     setFirstName(firstName);
     setLastName(lastName);
     setRating(rating);
-    setLastSeen(lastName);
+    setLastSeen(lastSeen);
     setIsActive(isActive);
+    setImage(image);
   }
 
   User.fromUser(String id) {

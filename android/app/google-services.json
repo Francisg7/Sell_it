@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "328780198381",
-    "project_id": "sell-it-10c0f",
-    "storage_bucket": "sell-it-10c0f.appspot.com"
+    "project_number": "607155990804",
+    "project_id": "sell-it-ukindustries",
+    "storage_bucket": "sell-it-ukindustries.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:328780198381:android:f251663fd51cfffdb4b7e4",
+        "mobilesdk_app_id": "1:607155990804:android:fd51879e26b7753b679201",
         "android_client_info": {
           "package_name": "com.ukindustries.sell_it"
         }
       },
       "oauth_client": [
         {
-          "client_id": "328780198381-ovv9a0jms8oblgicl1jd19dd2lno7qja.apps.googleusercontent.com",
+          "client_id": "607155990804-dmdcftde575to7p0r5q4nh6jqlq2ibmq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDwQFHlIpiTCtsjTeCZRKFUr69EouUC5rI"
+          "current_key": "AIzaSyAT6hwJml2EVnoNVsf_MF588fOnqAIOr8Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "328780198381-ovv9a0jms8oblgicl1jd19dd2lno7qja.apps.googleusercontent.com",
+              "client_id": "607155990804-dmdcftde575to7p0r5q4nh6jqlq2ibmq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

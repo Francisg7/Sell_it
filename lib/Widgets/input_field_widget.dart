@@ -1,44 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:sell_it/Screens/constants.dart';
+import 'package:sell_it/Constants/text_style_constants.dart';
 
-class CustomInputs extends StatelessWidget {
-  final String hintext;
+class InputFieldWidget extends StatelessWidget {
+  final String hintText;
   final Function(String) onChanged;
   final Function(String) onSubmitted;
   final TextInputAction textInputAction;
   final FocusNode focusNode;
   final bool isPasswordField;
 
-  CustomInputs(
-      {this.hintext,
-      this.onChanged,
-      this.onSubmitted,
-      this.focusNode,
-      this.textInputAction,
-      this.isPasswordField});
+  InputFieldWidget({
+    @required this.hintText,
+    this.isPasswordField,
+    this.onChanged,
+    this.onSubmitted,
+    this.focusNode,
+    this.textInputAction,
+  });
 
   @override
   Widget build(BuildContext context) {
-    bool _isPasswordField = isPasswordField ?? false;
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: 24.0,
         vertical: 12.0,
       ),
       decoration: BoxDecoration(
-          color: Colors.grey[200], borderRadius: BorderRadius.circular(12.0)),
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(12.0),
+      ),
       child: TextField(
-        keyboardType: (_isPasswordField
+        keyboardType: (isPasswordField
             ? TextInputType.visiblePassword
             : TextInputType.emailAddress),
-        obscureText: _isPasswordField,
+        obscureText: isPasswordField,
         onChanged: onChanged,
         onSubmitted: onSubmitted,
         focusNode: focusNode,
         textInputAction: textInputAction,
         decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: hintext ?? "Hint Text...",
+            hintText: hintText ?? "Hint Text...",
             contentPadding: EdgeInsets.symmetric(
               horizontal: 24.0,
               vertical: 18.0,

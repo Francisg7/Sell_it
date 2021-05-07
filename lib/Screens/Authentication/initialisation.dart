@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sell_it/Screens/Authentication/sign_up_page.dart';
-
-import '../constants.dart';
-import '../home_page.dart';
+import 'package:sell_it/Constants/text_style_constants.dart';
+import 'package:sell_it/Screens/Authentication/sign_in.dart';
+import 'package:sell_it/Screens/Feeds/main_feeds.dart';
 
 class Initialisation extends StatelessWidget {
   /// Widget's id name used with routes
@@ -55,13 +54,13 @@ class Initialisation extends StatelessWidget {
                 if (_user == null) {
                   // user not logged in, head to login
 
-                  return SignUp();
+                  return SignIn();
                 }
 
                 /// Checking if there is a user logged in
                 else if (_user != null) {
                   // The user is logged in, head to homepage
-                  return HomePage(
+                  return MainFeedsPage(
                     user: _user,
                   );
                 }

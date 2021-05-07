@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sell_it/Screens/Chat/Components/chat_body.dart';
-import 'package:sell_it/Screens/Chat/Components/constants.dart';
+import 'package:sell_it/Screens/Messaging/Components/chat_body.dart';
+import 'package:sell_it/Screens/Messaging/Components/constants.dart';
 
 class ChatMainScreen extends StatelessWidget {
   static const String id = "ChatMainScreen";

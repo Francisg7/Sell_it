@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sell_it/Screens/Authentication/sign_in.dart';
-import 'package:sell_it/Screens/Authentication/sign_up_page.dart';
-import 'package:sell_it/Screens/Chat/chat_screen.dart';
+import 'package:sell_it/Screens/Authentication/sign_up.dart';
+import 'package:sell_it/Screens/Messaging/chat_screen.dart';
 
 import 'Screens/Authentication/initialisation.dart';
 
@@ -21,13 +20,17 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.poppinsTextTheme(
         Theme.of(context).textTheme,
       )),
-      home: Initialisation(),
+
+      title: 'Flutter Demo',
+
+      //home: SignIn(),
       initialRoute: Initialisation.id,
       routes: {
         Initialisation.id: (context) => Initialisation(),
         SignIn.id: (context) => SignIn(),
         SignUp.id: (context) => SignUp(),
         ChatMainScreen.id: (context) => ChatMainScreen(),
+        //UserProfile.id: (context) => UserProfile(),
       },
     );
   }
