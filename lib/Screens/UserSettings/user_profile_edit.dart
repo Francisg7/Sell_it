@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sell_it/Screens/Authentication/initialisation.dart';
+import 'package:sell_it/Widgets/input_field_widget.dart';
 
 class UserProfile extends StatefulWidget {
   static const String id = "UserProfile";
@@ -15,6 +16,9 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
+  String _newName = "";
+  String _newDescription = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +72,14 @@ class _UserProfileState extends State<UserProfile> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("Template Name", style: TextStyle(fontSize: 14)),
+                  child: InputFieldWidget(
+                    hintText: "Type new Name here...",
+                    isPasswordField: false,
+                    onChanged: (value) {
+                      _newName = value;
+                    },
+                    textInputAction: TextInputAction.next,
+                  ),
                 ),
                 SizedBox(height: 20.0),
                 Padding(
@@ -89,27 +100,16 @@ class _UserProfileState extends State<UserProfile> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("This is a template description of the user.",
-                      style: TextStyle(fontSize: 14)),
+                  child: InputFieldWidget(
+                    hintText: "Type new Name here...",
+                    isPasswordField: false,
+                    onChanged: (value) {
+                      _newDescription = value;
+                    },
+                    textInputAction: TextInputAction.next,
+                  ),
                 ),
                 SizedBox(height: 20.0),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextButton(
-                      onPressed: () {},
-                      onLongPress: () async {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Initialisation()),
-                        );
-                        await FirebaseAuth.instance.signOut();
-                        dispose();
-                      },
-                      child: Text("Logout", style: TextStyle(fontSize: 14))),
-                ),
-                SizedBox(height: 20.0),
-              ],
             )
           ],
         ),

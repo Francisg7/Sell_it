@@ -116,9 +116,3 @@ class User {
     getIsActive();
   }
 }
-
-/*
-List sampleUsers = [
-  User(id)
-]
-*/
