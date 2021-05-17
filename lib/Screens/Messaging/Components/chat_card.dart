@@ -6,11 +6,11 @@ class ChatCard extends StatelessWidget {
   const ChatCard({
     Key key,
     @required
-        this.chatName /* Let this be a string and from there get the user from the user name string gotten*/,
+        this.chat /* Let this be a string and from there get the user from the user name string gotten*/,
     @required this.press,
   }) : super(key: key);
 
-  final String chatName;
+  final Chat chat;
   final VoidCallback press;
   @override
   Widget build(BuildContext context) {

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:sell_it/Models/ChatList.dart';
 import 'package:sell_it/Screens/Messaging/Components/constants.dart';
 import 'package:sell_it/Screens/Messaging/Components/message_body.dart';
 
 class MessageScreen extends StatefulWidget {
-  final String chatName;
+  final Chat chat;
   final List messages;
 
-  const MessageScreen({Key key, this.chatName, this.messages})
-      : super(key: key);
+  const MessageScreen({Key key, this.chat, this.messages}) : super(key: key);
   @override
   _MessageScreenState createState() => _MessageScreenState();
 }

@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Models/User.dart';
 import 'package:sell_it/Screens/Messaging/Components/chat_body.dart';
 import 'package:sell_it/Screens/Messaging/Components/constants.dart';
 
@@ -18,7 +18,7 @@ class _ChatMainScreenState extends State<ChatMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: ChatBody(widget.user),
+      body: ChatBody(user: widget.user),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: kPrimaryColor,

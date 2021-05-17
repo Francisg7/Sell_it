@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Models/ChatList.dart';
 import 'package:sell_it/Models/ChatMessage.dart';
 import 'package:sell_it/Models/User.dart';
 import 'package:sell_it/Screens/Messaging/Components/chat_card.dart';
@@ -7,7 +8,8 @@ import 'package:sell_it/Screens/Messaging/messages_screen.dart';
 
 class ChatBody extends StatefulWidget {
   final User user;
-  const ChatBody({Key key, this.user}) : super(key: key);
+
+  const ChatBody({Key key, @required this.user}) : super(key: key);
 
   @override
   _ChatBodyState createState() => _ChatBodyState();
@@ -40,14 +42,14 @@ class _ChatBodyState extends State<ChatBody> {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    itemCount: data.length,
+                    itemCount: chatsData.length /*data.length*/,
                     itemBuilder: (context, index) => ChatCard(
-                      chatName: data['chats'][index],
+                      chat: chatsData[index] /*data['chats'][index]*/,
                       press: () => Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => MessageScreen(
-                              chatName: data['chats'][index],
+                              chat: chatsData[index] /*data['chats'][index]*/,
                               messages: demoChatMessages,
                             ),
                           )),
