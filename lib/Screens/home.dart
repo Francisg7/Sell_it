@@ -1,20 +1,11 @@
-import 'package:ff_navigation_bar/ff_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
-class Homepage extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(
-          title: 'SELL IT',
-
-      ),
-    );
-  }
-}
+import 'package:sell_it/services/firebase_services.dart';
+import 'package:sell_it/tabs/chat_tab.dart';
+import 'package:sell_it/tabs/home_tab.dart';
+import 'package:sell_it/tabs/save_tab.dart';
+import 'package:sell_it/tabs/search_tab.dart';
+import 'package:sell_it/widgets/Button_tabs.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -25,69 +16,64 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _HomePageState extends State<HomePage> {
+  FirebaseServices _firebaseServices =FirebaseServices();
+  PageController _tabPageController;
+  int _selectedTab = 0;
 
-  int selectedIndex = 0;
+  @override
+  void initState() {
+    _tabPageController = PageController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabPageController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Colors.blueGrey.shade400,
-      ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'SELL IT2',
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+              Expanded(
+                child: PageView(
+                  controller: _tabPageController,
+                  onPageChanged: (num){
+                    setState(() {
+                      _selectedTab = num;
+                    });
+                  },
+                  children: [
+                    HomeTab(),
+                    SearchTab(),
+                    SearchTab(),
+                    ChatTab(),
+                    SaveTab(),
+                  ],
+                  //AssetImage('assets/'),
+                ),
+              ),
+            BottomTabs(
+              selectedTab: _selectedTab,
+              tabPressed: (num){
+                setState(() {
+                  _tabPageController.animateToPage(
+                      num,
+                      duration: Duration(
+                        milliseconds: 300
+                      ),
+                      curve: Curves.easeOutCubic);
+                });
+              },
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: FFNavigationBar(
-        theme: FFNavigationBarTheme(
-          barBackgroundColor: Colors.white,
-          selectedItemBorderColor: Colors.transparent,
-          selectedItemBackgroundColor: Colors.blue,
-          selectedItemIconColor: Colors.white,
-          selectedItemLabelColor: Colors.black,
-          showSelectedItemShadow: false,
-          barHeight: 70,
-        ),
-        selectedIndex: selectedIndex,
-        onSelectTab: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        items: [
-          FFNavigationBarItem(
-            iconData: Icons.home,
-            label: 'Home',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.search,
-            label: 'Search',
-            selectedBackgroundColor: Colors.blue,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.add_circle_outline,
-            label: 'Sell it',
-            selectedBackgroundColor: Colors.blue,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.chat,
-            label: 'Chat',
-            selectedBackgroundColor: Colors.blue,
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.settings,
-            label: 'Settings',
-            selectedBackgroundColor: Colors.blue,
-          ),
-        ],
       ),
     );
   }
