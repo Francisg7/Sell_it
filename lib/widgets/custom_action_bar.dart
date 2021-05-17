@@ -49,10 +49,10 @@ class CustomActionBar extends StatelessWidget {
               child: Container(
                 width: 36.0,
                 height: 36.0,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(6.0),
-                ),
+                // decoration: BoxDecoration(
+                //   color: Colors.black,
+                //   borderRadius: BorderRadius.circular(6.0),
+                // ),
                 child: Icon(
                   Icons.arrow_back_ios,
                 ),
@@ -82,6 +82,9 @@ class CustomActionBar extends StatelessWidget {
                 stream: _usersRef.doc(_firebaseServices.getUserId()).collection("Cart").snapshots(),
                 builder: (context, snapshot){
                   int _totalItems = 0;
+                    if(snapshot.data == null){
+                      return CircularProgressIndicator();
+                    }
 
                   if(snapshot.connectionState == ConnectionState.active){
                     List _documents = snapshot.data.docs;

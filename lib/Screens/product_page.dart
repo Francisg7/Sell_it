@@ -84,7 +84,7 @@ class _ProductPageState extends State<ProductPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
                       child: Text(
-                        "${documentData['price']}/fcfa",
+                        "${documentData['price']}fcfa",
                       style: TextStyle(
                         fontSize: 18.0,
                         color: Theme.of(context).accentColor,

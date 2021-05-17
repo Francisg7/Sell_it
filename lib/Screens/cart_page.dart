@@ -5,7 +5,6 @@ import 'package:sell_it/services/firebase_services.dart';
 import 'package:sell_it/widgets/custom_action_bar.dart';
 
 
-
 class CartPage extends StatefulWidget {
   @override
   _CartPageState createState() => _CartPageState();
@@ -94,7 +93,7 @@ class _CartPageState extends State<CartPage> {
                                            Padding(
                                              padding: EdgeInsets.symmetric(vertical: 4.0),
                                              child: Text(
-                                               "${_productMap['price']}",
+                                               "${_productMap['price']}Fcfa",
                                                style: TextStyle(
                                                  fontSize: 16.0,
                                                  color: Theme.of(context).accentColor,

@@ -14,7 +14,11 @@ class SaveTab extends StatelessWidget {
         child:Stack(
           children: [
             FutureBuilder<QuerySnapshot>(
-                future: _firebaseServices.usersRef.doc(_firebaseServices.getUserId()).collection("Saved").get(),
+                future: _firebaseServices.usersRef
+                    .doc(_firebaseServices
+                    .getUserId())
+                    .collection("Saved")
+                    .get(),
                 builder: (context, snapshot){
                   if (snapshot.hasError) {
                     return Scaffold(
@@ -88,7 +92,7 @@ class SaveTab extends StatelessWidget {
                                                 Padding(
                                                   padding: EdgeInsets.symmetric(vertical: 4.0),
                                                   child: Text(
-                                                    "${_productMap['price']}",
+                                                    "${_productMap['price']}Fcfa",
                                                     style: TextStyle(
                                                         fontSize: 16.0,
                                                         color: Theme.of(context).accentColor,
