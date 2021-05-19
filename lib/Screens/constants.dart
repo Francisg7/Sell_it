@@ -25,4 +25,10 @@ class Constants {
       fontWeight: FontWeight.w600,
       color: Colors.black
   );
+
+  static const regularIcon = TextStyle(
+    fontSize: 12.0,
+    fontWeight: FontWeight.w300,
+    color: Colors.grey,
+  );
 }

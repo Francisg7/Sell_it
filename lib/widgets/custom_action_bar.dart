@@ -106,12 +106,12 @@ class CustomActionBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(2.0,5.0,0.0,5.0),
             child: Container(
-              width: 36.0,
-              height: 36.0,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(12.0),
-              ),
+              width: 30.0,
+              height: 30.0,
+              // decoration: BoxDecoration(
+              //   color: Colors.black,
+              //   borderRadius: BorderRadius.circular(12.0),
+              // ),
               child: GestureDetector(
                 onTap: (){
                   FirebaseAuth.instance.signOut();
@@ -120,8 +120,8 @@ class CustomActionBar extends StatelessWidget {
                 image: AssetImage(
                     "Assets/tab_settings.png"
                 ),
-                 height: 22.0,
-                  color: Colors.white,
+                 height: 16.0,
+                  color: Colors.black,
                 ),
               ),
             ),

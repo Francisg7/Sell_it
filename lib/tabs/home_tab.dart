@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Screens/add_product.dart';
 import 'package:sell_it/widgets/custom_action_bar.dart';
 import 'package:sell_it/widgets/product_card.dart';
 
@@ -10,51 +11,62 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child:Stack(
-        children: [
-         FutureBuilder<QuerySnapshot>(
-           future: _productsRef.get(),
-           builder: (context, snapshot){
-             if (snapshot.hasError) {
-               return Scaffold(
-                 body: Center(
-                   child: Text("Error: ${snapshot.error}"),
-                 ),
-               );
-             }
-             //collection data ready to display
-             if(snapshot.connectionState == ConnectionState.done){
-                //display the data inside the listview
-               return ListView(
-                 padding: EdgeInsets.only(
-                     top: 108.0,
-                     bottom: 12.0
-                 ),
-                 children: snapshot.data.docs.map((document){
-                   return ProductCard(
-                     title: document.data()['name'],
-                     imageUrl: document.data()['images'][0],
-                     price: "${document.data()['price']}Fcfa",
-                    productId: document.id,
-                      );
-                 }).toList()
-               );
-             }
-             //Loading State
-             return Scaffold(
-                 body: Center(
-                 child: CircularProgressIndicator(),
-             ),
-             );
-           }
-         ),
-          CustomActionBar(
-            title: "Home",
-            hasBackArrow: false,
-          ),
-        ],
-      )
-    );
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+         Navigator.push(context, MaterialPageRoute(
+           builder: (context) => AddProduct(),
+         ));
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.black.withOpacity(0.8),
+      ),
+       body: Container(
+           child:Stack(
+             children: [
+               FutureBuilder<QuerySnapshot>(
+                   future: _productsRef.get(),
+                   builder: (context, snapshot){
+                     if (snapshot.hasError) {
+                       return Scaffold(
+                         body: Center(
+                           child: Text("Error: ${snapshot.error}"),
+                         ),
+                       );
+                     }
+                     //collection data ready to display
+                     if(snapshot.connectionState == ConnectionState.done){
+                       //display the data inside the listview
+                       return ListView(
+                           padding: EdgeInsets.only(
+                               top: 108.0,
+                               bottom: 12.0
+                           ),
+                           children: snapshot.data.docs.map((document){
+                             return ProductCard(
+                               title:document.data()['name'],
+                               imageUrl:document.data()['images'][0],
+                               price:"${document.data()['price']}Fcfa",
+                               productId: document.id,
+                             );
+                           }).toList()
+                       );
+                     }
+                     //Loading State
+                     return Container(
+                       // body: Center(
+                       //   child: CircularProgressIndicator(),
+                       // ),
+                     );
+                   }
+               ),
+               CustomActionBar(
+                 title: "Home",
+                 hasBackArrow: false,
+               ),
+             ],
+           )
+       ),
+      );
   }
 }
