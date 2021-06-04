@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Screens/Chat/Components/chat_body.dart';
 import 'package:sell_it/services/firebase_services.dart';
 import 'package:sell_it/tabs/chat_tab.dart';
 import 'package:sell_it/tabs/home_tab.dart';
 import 'package:sell_it/tabs/save_tab.dart';
 import 'package:sell_it/tabs/search_tab.dart';
-import 'package:sell_it/tabs/sell_tab.dart';
 import 'package:sell_it/widgets/Button_tabs.dart';
 
 class HomePage extends StatefulWidget {
@@ -53,8 +53,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     HomeTab(),
                     SearchTab(),
-                    SellTab(),
-                    ChatTab(),
+                    ChatBody(),
                     SaveTab(),
                   ],
                   //AssetImage('assets/'),

@@ -47,6 +47,11 @@ class HomeTab extends StatelessWidget {
                                title:document.data()['name'],
                                imageUrl:document.data()['images'][0],
                                price:"${document.data()['price']}Fcfa",
+                               username: document.data()['username'],
+                               postTimeStamp: document.data()['postTimeStamp'],
+                               imagethumb: document.data()['imagethumb'][0],
+                               productCommentCount: document.data()['productCommentCount'],
+                               productLikeCount: document.data()['productLikeCount'],
                                productId: document.id,
                              );
                            }).toList()
@@ -54,9 +59,7 @@ class HomeTab extends StatelessWidget {
                      }
                      //Loading State
                      return Container(
-                       // body: Center(
-                       //   child: CircularProgressIndicator(),
-                       // ),
+                       child: CircularProgressIndicator(),
                      );
                    }
                ),
@@ -67,6 +70,7 @@ class HomeTab extends StatelessWidget {
              ],
            )
        ),
+
       );
   }
 }

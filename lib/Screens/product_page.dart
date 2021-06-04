@@ -17,7 +17,6 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   FirebaseServices _firebaseServices =FirebaseServices();
-
   String _selectedProductSize = "0";
 
   Future _addToCart(){
@@ -66,6 +65,7 @@ class _ProductPageState extends State<ProductPage> {
                 //List of images
                 List imageList = documentData['images'];
                 List productSizes = documentData['size'];
+
 
                 // set an initial size
                 _selectedProductSize =productSizes[0];

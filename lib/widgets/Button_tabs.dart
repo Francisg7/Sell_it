@@ -49,25 +49,25 @@ class _BottomTabsState extends State<BottomTabs> {
              widget.tabPressed(1);
             },
           ),
+          // BottomTabsBtn(
+          //   imagePath:"Assets/tab_add.png",
+          //   selected: _selectedTab == 2 ? true: false,
+          //   onPressed: (){
+          //     widget.tabPressed(2);
+          //   },
+          // ),
           BottomTabsBtn(
-            imagePath:"Assets/tab_add.png",
+            imagePath: "Assets/tab_chat.png",
             selected: _selectedTab == 2 ? true: false,
             onPressed: (){
               widget.tabPressed(2);
             },
           ),
           BottomTabsBtn(
-            imagePath: "Assets/tab_chat.png",
+            imagePath: "Assets/tab_save.png",
             selected: _selectedTab == 3 ? true: false,
             onPressed: (){
               widget.tabPressed(3);
-            },
-          ),
-          BottomTabsBtn(
-            imagePath: "Assets/tab_save.png",
-            selected: _selectedTab == 4 ? true: false,
-            onPressed: (){
-              widget.tabPressed(4);
             },
           ),
         ],
