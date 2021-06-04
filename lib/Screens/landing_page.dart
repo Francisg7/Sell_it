@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:sell_it/Screens/login.dart';
 
 import 'constants.dart';
 import 'home.dart';
-import 'login.dart';
 
 class LandingPage extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
@@ -25,7 +25,6 @@ class LandingPage extends StatelessWidget {
 
         // Connection Initialized - Firebase App is running
         if (snapshot.connectionState == ConnectionState.done) {
-
           // StreamBuilder can check the login state live
           return StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
@@ -41,13 +40,12 @@ class LandingPage extends StatelessWidget {
 
               // Connection state active - Do the user login check inside the
               // if statement
-              if(streamSnapshot.connectionState == ConnectionState.active) {
-
+              if (streamSnapshot.connectionState == ConnectionState.active) {
                 // Get the user
                 User _user = streamSnapshot.data;
 
                 // If the user is null, we're not logged in
-                if(_user == null) {
+                if (_user == null) {
                   // user not logged in, head to login
                   return LoginPage();
                 } else {
